@@ -1,0 +1,135 @@
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #334155;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.leaderboard-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.leaderboard-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.app-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.setup-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.upload-section {
+  width: 100%;
+}
+
+.preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.controls-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.difficulty-section {
+  width: 100%;
+  max-width: 500px;
+}
+
+.difficulty-section h3 {
+  color: #94a3b8;
+  font-size: 16px;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.start-btn {
+  padding: 16px 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 16px;
+}
+
+.start-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.start-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.game-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 16px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .app-header h1 {
+    font-size: 24px;
+  }
+
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

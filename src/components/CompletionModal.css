@@ -1,0 +1,69 @@
+.completion-modal {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 32px;
+  width: 90vw;
+  max-width: 400px;
+  text-align: center;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.completion-header {
+  margin-bottom: 24px;
+}
+
+.completion-header h2 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 28px;
+}
+
+.celebration {
+  font-size: 64px;
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.completion-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.completion-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.completion-stat .label {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.completion-stat .value {
+  color: #f1f5f9;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.completion-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.completion-actions .btn {
+  width: 100%;
+  justify-content: center;
+}

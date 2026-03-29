@@ -1,0 +1,205 @@
+.difficulty-selector {
+  width: 100%;
+  max-width: 500px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.selector-title {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.difficulty-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.difficulty-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.difficulty-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.difficulty-button.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent-color) 30%, transparent);
+}
+
+.difficulty-button.active .difficulty-name {
+  color: var(--accent-color);
+}
+
+.difficulty-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.difficulty-grid {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.difficulty-pieces {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.custom-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.custom-toggle.active {
+  border-style: solid;
+  border-color: #646cff;
+  background: rgba(100, 108, 255, 0.1);
+  color: #646cff;
+}
+
+.custom-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.current-selection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: rgba(100, 108, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(100, 108, 255, 0.2);
+}
+
+.selection-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.selection-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #646cff;
+}
+
+@media (max-width: 480px) {
+  .difficulty-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .difficulty-selector {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .selector-title {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .difficulty-button {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .difficulty-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .difficulty-button.active {
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .difficulty-grid {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .difficulty-pieces {
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .custom-section {
+    border-top-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .custom-toggle {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .custom-toggle:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .custom-toggle.active {
+    border-color: #646cff;
+    background: rgba(100, 108, 255, 0.08);
+    color: #4a54c8;
+  }
+
+  .current-selection {
+    background: rgba(100, 108, 255, 0.08);
+    border-color: rgba(100, 108, 255, 0.15);
+  }
+
+  .selection-label {
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  .selection-value {
+    color: #4a54c8;
+  }
+}

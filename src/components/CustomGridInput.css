@@ -1,0 +1,136 @@
+.custom-grid-input {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-grid-title {
+  margin: 0 0 16px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.input-field label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.input-field input {
+  width: 80px;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.input-field input:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.input-field input:focus:not(:disabled) {
+  border-color: #646cff;
+  background: rgba(100, 108, 255, 0.1);
+}
+
+.input-field input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-field input.error {
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.input-field input::-webkit-outer-spin-button,
+.input-field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-field input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: #ff6b6b;
+  text-align: center;
+  min-height: 18px;
+}
+
+.separator {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 28px;
+  font-weight: 300;
+}
+
+.range-hint {
+  margin: 12px 0 0 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  .custom-grid-input {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-grid-title {
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .input-field label {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .input-field input {
+    border-color: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.03);
+    color: #213547;
+  }
+
+  .input-field input:hover:not(:disabled) {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .input-field input:focus:not(:disabled) {
+    border-color: #646cff;
+    background: rgba(100, 108, 255, 0.05);
+  }
+
+  .separator {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .range-hint {
+    color: rgba(0, 0, 0, 0.45);
+  }
+}

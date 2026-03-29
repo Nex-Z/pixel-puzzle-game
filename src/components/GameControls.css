@@ -1,0 +1,55 @@
+.game-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #2d3748;
+  color: #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: #3d4a5c;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #4a5568;
+  color: #a0aec0;
+}
+
+.btn-outline:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

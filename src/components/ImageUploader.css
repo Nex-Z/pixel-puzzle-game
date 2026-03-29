@@ -1,0 +1,116 @@
+.image-uploader {
+  width: 100%;
+}
+
+.upload-area {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.upload-area:hover {
+  border-color: #666;
+  background-color: #f0f0f0;
+}
+
+.upload-area.dragging {
+  border-color: #4a90e2;
+  background-color: #e8f4fd;
+  border-style: solid;
+}
+
+.upload-area.has-preview {
+  border-style: solid;
+  border-color: #4a90e2;
+}
+
+.upload-placeholder {
+  text-align: center;
+  padding: 20px;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.upload-hint {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.clear-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.clear-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .upload-area {
+    background-color: #2a2a2a;
+    border-color: #555;
+  }
+
+  .upload-area:hover {
+    background-color: #333;
+    border-color: #888;
+  }
+
+  .upload-area.dragging {
+    background-color: #1a3a5c;
+    border-color: #4a90e2;
+  }
+
+  .upload-text {
+    color: #ddd;
+  }
+
+  .upload-hint {
+    color: #888;
+  }
+}

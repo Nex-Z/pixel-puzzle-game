@@ -1,0 +1,164 @@
+.pixel-preview {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pixel-preview.empty {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ddd;
+  background-color: transparent;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #e8e8e8;
+  border-bottom: 1px solid #ddd;
+}
+
+.preview-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.pixel-info {
+  font-size: 12px;
+  color: #666;
+  background-color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.preview-container {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.preview-canvas {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-overlay,
+.error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #4a90e2;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.error-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.error-overlay p {
+  font-size: 14px;
+  color: #e74c3c;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pixel-preview {
+    background-color: #2a2a2a;
+  }
+
+  .pixel-preview.empty {
+    border-color: #444;
+  }
+
+  .empty-text {
+    color: #888;
+  }
+
+  .preview-header {
+    background-color: #333;
+    border-bottom-color: #444;
+  }
+
+  .preview-title {
+    color: #ddd;
+  }
+
+  .pixel-info {
+    background-color: #444;
+    color: #aaa;
+  }
+
+  .preview-canvas {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .loading-overlay,
+  .error-overlay {
+    background-color: rgba(42, 42, 42, 0.9);
+  }
+
+  .loading-spinner {
+    border-color: #444;
+    border-top-color: #4a90e2;
+  }
+
+  .loading-overlay p {
+    color: #aaa;
+  }
+}
