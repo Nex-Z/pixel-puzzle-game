@@ -3,34 +3,49 @@
   align-items: center;
   gap: 12px;
   padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  border: 3px solid var(--border-color);
+  box-shadow: var(--shadow-pixel);
   transition: all 0.3s ease;
 }
 
 .timer.running {
-  background: rgba(100, 108, 255, 0.1);
-  border-color: rgba(100, 108, 255, 0.3);
-  box-shadow: 0 0 20px rgba(100, 108, 255, 0.15);
+  border-color: var(--accent-secondary);
+  box-shadow: var(--shadow-pixel), var(--shadow-glow-cyan);
+  animation: pulse-border-timer 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border-timer {
+  0%, 100% {
+    border-color: var(--accent-secondary);
+  }
+  50% {
+    border-color: var(--accent-primary);
+  }
 }
 
 .timer-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: rgba(255, 255, 255, 0.6);
+  width: 36px;
+  height: 36px;
+  color: var(--text-muted);
+  font-size: 24px;
 }
 
 .timer.running .timer-icon {
-  color: #646cff;
+  color: var(--accent-secondary);
+  animation: pulse-icon 1s ease-in-out infinite;
 }
 
-.timer-icon svg {
-  width: 24px;
-  height: 24px;
+@keyframes pulse-icon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .timer-display {
@@ -41,26 +56,30 @@
 }
 
 .timer-time {
-  font-size: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 32px;
   font-weight: 700;
-  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 3px;
+  color: var(--text-primary);
+  line-height: 1;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .timer.running .timer-time {
-  color: #646cff;
+  color: var(--accent-secondary);
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
 }
 
 .timer-label {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .timer.running .timer-label {
-  color: rgba(100, 108, 255, 0.8);
+  color: var(--accent-secondary);
 }
 
 .timer-pulse {
@@ -71,62 +90,21 @@
 }
 
 .pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: #646cff;
-  border-radius: 50%;
-  animation: pulse 1.5s ease-in-out infinite;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-secondary);
+  animation: pulse-timer 1s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--accent-secondary);
 }
 
-@keyframes pulse {
+@keyframes pulse-timer {
   0%, 100% {
     transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.5);
-    opacity: 0.5;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .timer {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.08);
-  }
-
-  .timer.running {
-    background: rgba(100, 108, 255, 0.08);
-    border-color: rgba(100, 108, 255, 0.2);
-    box-shadow: 0 0 20px rgba(100, 108, 255, 0.1);
-  }
-
-  .timer-icon {
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  .timer.running .timer-icon {
-    color: #4f46e5;
-  }
-
-  .timer-time {
-    color: rgba(0, 0, 0, 0.85);
-  }
-
-  .timer.running .timer-time {
-    color: #4f46e5;
-  }
-
-  .timer-label {
-    color: rgba(0, 0, 0, 0.4);
-  }
-
-  .timer.running .timer-label {
-    color: rgba(79, 70, 229, 0.8);
-  }
-
-  .pulse-dot {
-    background: #4f46e5;
+    transform: scale(1.3);
+    opacity: 0.6;
   }
 }
 
@@ -139,18 +117,20 @@
   .timer-icon {
     width: 28px;
     height: 28px;
-  }
-
-  .timer-icon svg {
-    width: 20px;
-    height: 20px;
+    font-size: 20px;
   }
 
   .timer-time {
-    font-size: 1.25rem;
+    font-size: 24px;
+    letter-spacing: 2px;
   }
 
   .timer-label {
-    font-size: 0.7rem;
+    font-size: 7px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
   }
 }

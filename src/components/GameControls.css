@@ -6,50 +6,105 @@
 }
 
 .btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 12px 20px;
+  border: 3px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   display: flex;
   align-items: center;
   gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  background: var(--bg-card);
+  color: var(--text-primary);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+.btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-}
-
-.btn-secondary {
-  background: #2d3748;
-  color: #e2e8f0;
-}
-
-.btn-secondary:hover {
-  background: #3d4a5c;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid #4a5568;
-  color: #a0aec0;
-}
-
-.btn-outline:hover {
-  border-color: #667eea;
-  color: #667eea;
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
 }
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  border-color: #ff6b6b;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5), var(--shadow-glow-red);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(0, 217, 255, 0.1);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5), var(--shadow-glow-cyan);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--text-muted);
+  color: var(--text-secondary);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--accent-warning);
+  color: var(--accent-warning);
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.btn-success {
+  background: var(--accent-success);
+  border-color: #4dffa3;
+  color: var(--bg-primary);
+}
+
+.btn-success:hover:not(:disabled) {
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5), var(--shadow-glow-green);
+}
+
+/* 按钮图标 */
+.btn-icon {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .game-controls {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 12px;
+    border-width: 2px;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn:hover:not(:disabled) {
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-icon {
+    font-size: 14px;
+  }
 }

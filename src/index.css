@@ -1,10 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 :root {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* 像素游戏风格调色板 */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+  --bg-hover: #1a4a7a;
+  
+  /* 霓虹强调色 */
+  --accent-primary: #e94560;
+  --accent-secondary: #00d9ff;
+  --accent-success: #00ff88;
+  --accent-warning: #ffc107;
+  --accent-purple: #b829dd;
+  
+  /* 文字颜色 */
+  --text-primary: #eaeaea;
+  --text-secondary: #a0a0a0;
+  --text-muted: #6a6a6a;
+  
+  /* 边框颜色 */
+  --border-color: #533483;
+  --border-light: rgba(83, 52, 131, 0.5);
+  --border-glow: rgba(233, 69, 96, 0.5);
+  
+  /* 字体 */
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-mono: 'VT323', monospace;
+  --font-system: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* 阴影 */
+  --shadow-pixel: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  --shadow-glow-red: 0 0 10px rgba(233, 69, 96, 0.5), 0 0 20px rgba(233, 69, 96, 0.3);
+  --shadow-glow-cyan: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(0, 217, 255, 0.3);
+  --shadow-glow-green: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 255, 136, 0.3);
+  
+  /* 间距 */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  
+  /* 圆角（像素风格使用小圆角或直角） */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
-  color: #f1f5f9;
-  background-color: #0f172a;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,6 +66,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 #root {
@@ -26,24 +77,242 @@ body {
   min-height: 100vh;
 }
 
-button {
-  font-family: inherit;
+/* 像素风格标题 */
+h1, h2, h3 {
+  font-family: var(--font-pixel);
+  letter-spacing: 1px;
 }
 
+h1 {
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 按钮基础样式 */
+button {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.1s ease;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent-secondary);
+  outline-offset: 2px;
+}
+
+/* 像素风格按钮 */
+.pixel-btn {
+  position: relative;
+  padding: 12px 24px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 3px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-pixel);
+  transition: all 0.1s ease;
+}
+
+.pixel-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent-primary);
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-pixel);
+}
+
+/* 霓虹按钮变体 */
+.pixel-btn-primary {
+  background: var(--accent-primary);
+  border-color: #ff6b6b;
+  color: white;
+}
+
+.pixel-btn-primary:hover {
+  box-shadow: var(--shadow-glow-red), 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn-secondary {
+  background: var(--accent-secondary);
+  border-color: #4de8ff;
+  color: var(--bg-primary);
+}
+
+.pixel-btn-secondary:hover {
+  box-shadow: var(--shadow-glow-cyan), 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn-success {
+  background: var(--accent-success);
+  border-color: #4dffa3;
+  color: var(--bg-primary);
+}
+
+.pixel-btn-success:hover {
+  box-shadow: var(--shadow-glow-green), 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* 像素卡片 */
+.pixel-card {
+  background: var(--bg-secondary);
+  border: 3px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-pixel);
+  padding: var(--space-md);
+}
+
+/* 像素边框 */
+.pixel-border {
+  border: 3px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+/* 霓虹发光效果 */
+.glow-red {
+  box-shadow: var(--shadow-glow-red);
+}
+
+.glow-cyan {
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.glow-green {
+  box-shadow: var(--shadow-glow-green);
+}
+
+/* 文字发光 */
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.8), 0 0 20px rgba(233, 69, 96, 0.5);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.8), 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+/* 像素滚动条 */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 4px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--accent-primary);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-secondary);
+}
+
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--accent-secondary), 0 0 10px var(--accent-secondary);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--accent-secondary), 0 0 25px var(--accent-secondary);
+  }
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: var(--border-color);
+  }
+  50% {
+    border-color: var(--accent-primary);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pixel-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* 闪烁光标 */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: '▋';
+  animation: blink 1s infinite;
+  color: var(--accent-secondary);
+}
+
+/* 选择禁用 */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 响应式字体调整 */
+@media (max-width: 600px) {
+  :root {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 18px;
+  }
+  
+  h2 {
+    font-size: 14px;
+  }
+  
+  h3 {
+    font-size: 12px;
+  }
 }
