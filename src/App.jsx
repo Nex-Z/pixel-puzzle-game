@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import './App.css'
 import ImageUploader from './components/ImageUploader'
-import ImageCropper from './components/ImageCropper'
 import PixelSizeSlider from './components/PixelSizeSlider'
 import PixelPreview from './components/PixelPreview'
 import DifficultySelector from './components/DifficultySelector'
@@ -18,8 +17,6 @@ import { saveScore } from './utils/leaderboard'
 
 function App() {
   const [originalImage, setOriginalImage] = useState(null)
-  const [rawImageUrl, setRawImageUrl] = useState(null)
-  const [showCropper, setShowCropper] = useState(false)
   const [pixelSize, setPixelSize] = useState(8)
   const [pixelCanvas, setPixelCanvas] = useState(null)
   const [gameConfig, setGameConfig] = useState({ rows: 4, cols: 4 })
@@ -34,29 +31,13 @@ function App() {
   const handleImageUpload = useCallback((file) => {
     const reader = new FileReader()
     reader.onload = (e) => {
-      setRawImageUrl(e.target.result)
-      setShowCropper(true)
-    }
-    reader.readAsDataURL(file)
-  }, [])
-
-  const handleCrop = useCallback(async (croppedCanvas) => {
-    setShowCropper(false)
-    try {
-      const dataUrl = croppedCanvas.toDataURL('image/png')
-      setOriginalImage(dataUrl)
+      setOriginalImage(e.target.result)
       setGameStarted(false)
       resetGame()
       resetTimer()
-    } catch (error) {
-      console.error('图片加载失败:', error)
     }
+    reader.readAsDataURL(file)
   }, [resetGame, resetTimer])
-
-  const handleCropCancel = useCallback(() => {
-    setShowCropper(false)
-    setRawImageUrl(null)
-  }, [])
 
   const handlePixelSizeChange = useCallback((size) => {
     setPixelSize(size)
@@ -137,19 +118,13 @@ function App() {
       <main className="app-main">
         {!gameStarted ? (
           <div className="setup-section">
-            {showCropper && rawImageUrl ? (
-              <ImageCropper
-                image={rawImageUrl}
-                onCrop={handleCrop}
-                onCancel={handleCropCancel}
-              />
-            ) : (
+            {!originalImage && (
               <div className="upload-section">
                 <ImageUploader onImageUpload={handleImageUpload} />
               </div>
             )}
 
-            {originalImage && !showCropper && (
+            {originalImage && (
               <div className="preview-section">
                 <div className="controls-row">
                   <PixelSizeSlider 
